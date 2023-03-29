@@ -1,3 +1,11 @@
+<?php
+//if (empty($_SESSION['signedin'])) {
+//    $display_modal_window = 'none';
+//    include('view_startpage_jordan_abel.php');
+//    exit();
+//}
+//?>
+
 <!DOCTYPE html>
 <html>
 
@@ -5,73 +13,45 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<head>
+    <meta charset="UTF-8">
+    <title>Snowboarder Messenger</title>
+</head>
+
 <style>
-    #main {
-        width: 100vw;
-        height: 100vh;
-        position: relative;
-        display: flex;
-        flex-direction: row;
-    }
-    #menu {
-        width: 30%;
-        height: 100%;
-        position: relative;
-    }
-    #images-right > img {
-        display: block;
-        margin-top: 50px;
-    }
-    #images-right {
-        position: absolute;
-        right: 40px;
-    }
-    #results {
-        width: 50%;
-        height: 100%;
-        border-left: 1px solid black;
-        border-right: 1px solid black;
-    }
-    #results-contents {
-        position: relative;
-        margin-left: 50px;
-        padding-top: 100px;
-    }
-    #results-contents > h2 {
-        display: block;
-        padding-bottom: 50px;
-    }
-    #friends-result {
-        display: block;
-        padding-bottom: 60px;
+    #ui-container, #results {
+        height: calc(100vh - 7vh);
     }
 </style>
 <body>
+<div class="container-fluid vh-100 border border-dark overflow-hidden">
+    <div class="row border border-primary align-content-center" style="height: 7vh">
+        <div class="col-1">
+            <img class="mx-4" src="Icons/snowboarder.png" width="50px">
+        </div>
+        <div class="col-11">
+            <h1 class="text-end mx-4">Snowboarder Messenger</h1>
+        </div>
+    </div>
 
-<div id="main">
-    <div id="menu">
-        <img src="Icons/TRU_Logo.png" width="100%">
-        <div id="images-right">
-            <img id="search" src="Icons/search.png" width="50px">
-            <img id="send" src="Icons/send.png" width="50px">
-            <img id="read" src="Icons/email.png" width="50px">  <!-- There was no email icon in the folder so assumed this would be used in its place. -->
-            <form id="form" method="POST" action="controller_jordan.php">
-                <input type="hidden" name="page" value="MainPage">
-                <input type="hidden" name="command" value="Logout">
-            </form>
-            <img src="Icons/user.png" width="50px" onclick="submitForm()">
+    <div id="ui-container" class="row border border-danger">
+        <div class="col-3 border h-auto border-success d-flex flex-column">
+            <div class="row m-5">
+                <button id="messages" class="btn btn-light btn-outline-dark rounded-3">Message Board</button>
+            </div>
+            <div class="row m-5 mt-3">
+                <button id="account-info" class="btn btn-light btn-outline-dark rounded-3">Change Account Info</button>
+            </div>
+            <div class="row m-5 mt-3">
+                <button id="friends" class="btn btn-light btn-outline-dark rounded-3">Friends</button>
+            </div>
+            <div class="row m-5 mt-auto">
+                <button id="logout" class="btn btn-light btn-outline-dark rounded-3">Log Out</button>
+            </div>
         </div>
+        <div id="results" class="col-9 border border-warning d-flex flex-column"></div>
     </div>
-    <div id="results">
-        <div id="results-contents">
-            <h2>Friends</h2><br>
-            <div id='friends-result'></div>
-            <h2>Messages</h2><br>
-            <h2>Unread Messages</h2><br>
-            <div id='unread-messages'></div>
-            <h2>Read Messages</h2><br>
-        </div>
-    </div>
+
     <div class='modal fade' id='modal-search-friends'>
         <div class='modal-dialog'>
             <div class='modal-content'>
@@ -87,7 +67,8 @@
                             <input
                                     type="text"
                                     class="form-control"
-                                    id="search-term" name='term'
+                                    id="search-term"
+                                    name='term'
                                     placeholder="Enter username or part of username"
                             >
                         </div>
@@ -102,87 +83,50 @@
             </div>
         </div>
     </div>
-    <div class='modal fade' id='modal-send-message'>
-        <div class='modal-dialog'>
-            <div class='modal-content'>
-                <div class='header'>
-                    <h2 class='modal-title'>SendMessage</h2>
-                </div>
-                <div class='body'>
-                    <div class="input-group">
-                        <label class="control-label" for="receiver">Receiver:</label>
-                        <input
-                                type="text"
-                                class="form-control"
-                                id="receiver"
-                                name='receiver'
-                                placeholder="Enter the receiver's username"
-                        >
-                        <label class="control-label" for="message">Message:</label>
-                        <input
-                                type="text"
-                                class="form-control"
-                                id="message" name='message'
-                                placeholder="Enter a message to send"
-                        >
-                    </div>
-                </div>
-                <div class='footer'>
-                    <div class="input-group">
-                        <button type='button' class="btn btn-outline-danger" data-bs-dismiss='modal'>Cancel</button>
-                        <button id='submit-send-message' type='button' class="btn btn-outline-primary">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <form id="form" method="POST" action="controller_jordan.php">
+        <input type="hidden" name="page" value="MainPage">
+        <input type="hidden" name="command" value="Logout">
+    </form>
 </div>
 
+
 </body>
-
-<?php
-function to_table($list) {
-    $table = "<table>";
-    foreach($list as $value) {
-        $table .= "<tr>";
-        $table .= "<td>$value</td>";
-        $table .= "</tr>";
-    }
-    $table .= "</table>";
-    return $table;
-}
-
-if (isset($_SESSION['friends-list'])) {
-    $list = $_SESSION['friends-list'];
-    $table = to_table($list);
-    echo "<script>document.getElementById('friends-result').innerHTML = '$table'</script>";
-}
-?>
 
 <script>
     function submitForm() {
         document.getElementById("form").submit();
     }
 
-    var timer = setTimeout(timeout, 10000);
-    window.addEventListener('mousemove', event_listener_mousemove_or_keydown);
-    window.addEventListener('keydown', event_listener_mousemove_or_keydown);
+    $("#logout").click(submitForm);
 
-    function event_listener_mousemove_or_keydown() {
-        clearTimeout(timer);
-        timer = setTimeout(timeout, 10000);
-    }
-    function timeout() {
-        submitForm();
-    }
+    // var timer = setTimeout(timeout, 1000 * 60 * 3);
+    // window.addEventListener('mousemove', event_listener_mousemove_or_keydown);
+    // window.addEventListener('keydown', event_listener_mousemove_or_keydown);
+    //
+    // function event_listener_mousemove_or_keydown() {
+    //     clearTimeout(timer);
+    //     timer = setTimeout(timeout, 1000 * 60 * 3);
+    // }
+    // function timeout() {
+    //     submitForm();
+    // }
 
-    $("#search").click(function() {
-        $("#modal-search-friends").modal('show');
+    $("body").ready(function () {
+        $("#results").load("nav_windows/messages.php")
     });
 
-    $('#send').click(function() {
-        $('#modal-send-message').modal('show');
-    });
+    $("#messages").click(function () {
+        $("#results").load("nav_windows/messages.php")
+    })
+
+    $("#friends").click(function () {
+        $("#results").load("nav_windows/friends.php")
+    })
+
+    $("#account-info").click(function () {
+        $("#results").load("nav_windows/account_info.php")
+    })
 
     $('#submit-send-message').click(function() {
         $('#modal-send-message').modal('hide');
@@ -211,13 +155,5 @@ if (isset($_SESSION['friends-list'])) {
             }
         );
     });
-
-    <?php
-    if (empty($_SESSION['signedin'])) {
-        $display_modal_window = 'none';
-        include('view_startpage_jordan_abel.php');
-        exit;
-    }
-    ?>
 </script>
 </html>
