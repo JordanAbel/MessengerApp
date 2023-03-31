@@ -49,17 +49,17 @@
                 </div>
             </div>
             <div class="row p-3">
-                <div class="col-4">
-                    <h5>Enter Friends Username:</h5>
-                </div>
-                <div class="col-6 ms-auto">
-                    <input id="friend-username" class="form-control" name="friend">
+                <div class="col-11">
+                    <input id="friend-username"
+                           placeholder="Enter friends username"
+                           class="form-control"
+                           name="friend">
                 </div>
                 <div class="col-1">
                     <img id="search-send" src="Icons/search.png" width="35px" class="float-end">
                 </div>
             </div>
-            <div class="row">
+            <div class="row p-3">
                 <div id="friends-result" class="col-12"></div>
             </div>
         </div>

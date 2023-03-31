@@ -86,7 +86,11 @@
                                     <label class="control-label" for="login-username">Username: </label>
                                 </div>
                                 <div class="col-6">
-                                    <input class="form-control" id="login-username" name="username" type="text">
+                                    <input class="form-control"
+                                           id="login-username"
+                                           placeholder="Enter username"
+                                           name="username"
+                                           type="text">
                                     <span><?php echo $error_msg_username ?></span>
                                 </div>
                             </div>
@@ -95,7 +99,11 @@
                                     <label class="control-label" for="login-password">Password: </label>
                                 </div>
                                 <div class="col-6">
-                                    <input class="form-control" id="login-password" name="password" type="password">
+                                    <input class="form-control"
+                                           id="login-password"
+                                           placeholder="Enter password"
+                                           name="password"
+                                           type="password">
                                     <span><?php echo $error_msg_password ?></span>
                                 </div>
                             </div>
@@ -143,7 +151,11 @@
                                     <label class="control-label" for="signup-username">Username: </label>
                                 </div>
                                 <div class="col-6">
-                                    <input class="form-control" id="signup-username" name="username" type="text">
+                                    <input class="form-control"
+                                           id="signup-username"
+                                           placeholder="Enter username"
+                                           name="username"
+                                           type="text">
                                     <span><?php echo $error_msg_username_exists ?></span>
                                 </div>
                             </div>
@@ -152,7 +164,11 @@
                                     <label class="control-label" for="signup-password">Password: </label>
                                 </div>
                                 <div class="col-6">
-                                    <input class="form-control" id="signup-password" name="password" type="password">
+                                    <input class="form-control"
+                                           id="signup-password"
+                                           placeholder="Enter password"
+                                           name="password"
+                                           type="password">
                                 </div>
                             </div>
                             <div class="row m-4 w-100">
@@ -160,7 +176,12 @@
                                     <label class="control-label" for="signup-email">Email: </label>
                                 </div>
                                 <div class="col-6">
-                                    <input class="form-control" id="signup-email" name="email" type="text">
+                                    <input class="form-control"
+                                           placeholder="johnsmith@gmail.com"
+                                           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                           id="signup-email"
+                                           name="email"
+                                           type="text">
                                 </div>
                             </div>
                         </div>

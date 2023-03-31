@@ -1,10 +1,10 @@
 <?php
-//if (empty($_SESSION['signedin'])) {
-//    $display_modal_window = 'none';
-//    include('view_startpage_jordan_abel.php');
-//    exit();
-//}
-//?>
+if (empty($_SESSION['signedin'])) {
+    $display_modal_window = 'none';
+    include('view_startpage_jordan_abel.php');
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -115,17 +115,17 @@
 
     $("#logout").click(submitForm);
 
-    // var timer = setTimeout(timeout, 1000 * 60 * 3);
-    // window.addEventListener('mousemove', event_listener_mousemove_or_keydown);
-    // window.addEventListener('keydown', event_listener_mousemove_or_keydown);
-    //
-    // function event_listener_mousemove_or_keydown() {
-    //     clearTimeout(timer);
-    //     timer = setTimeout(timeout, 1000 * 60 * 3);
-    // }
-    // function timeout() {
-    //     submitForm();
-    // }
+    var timer = setTimeout(timeout, 1000 * 60 * 3);
+    window.addEventListener('mousemove', event_listener_mousemove_or_keydown);
+    window.addEventListener('keydown', event_listener_mousemove_or_keydown);
+
+    function event_listener_mousemove_or_keydown() {
+        clearTimeout(timer);
+        timer = setTimeout(timeout, 1000 * 60 * 3);
+    }
+    function timeout() {
+        submitForm();
+    }
 
     $("body").ready(function () {
         $("#results").load("messages.php")

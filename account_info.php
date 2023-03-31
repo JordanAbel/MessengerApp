@@ -29,7 +29,11 @@
                             <label class="control-label" for="change-username">Username:</label>
                         </div>
                         <div class="col-4 ms-auto me-5">
-                            <input class="form-control" id="change-username" name="username" type="text">
+                            <input class="form-control"
+                                   id="change-username"
+                                   placeholder="Enter username"
+                                   name="username"
+                                   type="text">
                         </div>
                         <div class="col-2">
                             <button id="change-username-send"
@@ -44,7 +48,11 @@
                             <label class="control-label" for="change-password">Password:</label>
                         </div>
                         <div class="col-4 ms-auto me-5">
-                            <input class="form-control" id="change-password" name="password" type="password">
+                            <input class="form-control"
+                                   id="change-password"
+                                   placeholder="Enter password"
+                                   name="password"
+                                   type="password">
                         </div>
                         <div class="col-2">
                             <button id="change-password-send"
