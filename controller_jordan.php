@@ -127,5 +127,9 @@ if ($page == 'StartPage') {
             }
             echo "$result";
             exit();
+        case 'DeleteAccount':
+            $result = delete_account($username);
+            echo "$result";
+            exit();
     }
 }

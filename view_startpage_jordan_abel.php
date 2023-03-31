@@ -10,10 +10,7 @@
 </head>
 
 <style>
-    #login-btn, #signup-btn {
-        background-color: deepskyblue;
-        color: black;
-    }
+
 </style>
 
 <body>

@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <form id="form" method="POST" action="controller_jordan.php">
+    <form id="logout-form" method="POST" action="controller_jordan.php">
         <input type="hidden" name="page" value="MainPage">
         <input type="hidden" name="command" value="Logout">
     </form>
@@ -95,7 +95,7 @@
 
 <script>
     function submitForm() {
-        document.getElementById("form").submit();
+        document.getElementById("logout-form").submit();
     }
 
     $("#logout").click(submitForm);
@@ -113,19 +113,19 @@
     // }
 
     $("body").ready(function () {
-        $("#results").load("nav_windows/messages.php")
+        $("#results").load("messages.php")
     });
 
     $("#messages").click(function () {
-        $("#results").load("nav_windows/messages.php")
+        $("#results").load("messages.php")
     })
 
     $("#friends").click(function () {
-        $("#results").load("nav_windows/friends.php")
+        $("#results").load("friends.php")
     })
 
     $("#account-info").click(function () {
-        $("#results").load("nav_windows/account_info.php")
+        $("#results").load("account_info.php")
     })
 
     $('#submit-send-message').click(function() {

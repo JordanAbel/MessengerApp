@@ -72,11 +72,26 @@
                             </button>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button id="delete-account-btn"
+                                    class="btn rounded-3 px-4 py-3 btn-light btn-outline-danger mb-3 w-100"
+                            >
+                                Delete Account
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<form id="logout-form" method="POST" action="controller_jordan.php">
+    <input type="hidden" name="page" value="MainPage">
+    <input type="hidden" name="command" value="Logout">
+</form>
+
 </body>
 
 <script>
@@ -126,6 +141,23 @@
                     alert("Password changed successfully");
                 } else {
                     alert("There was an error changing your password!");
+                }
+            }
+        );
+    })
+
+    $("#delete-account-btn").click(function () {
+        $.post("controller_jordan.php",
+            {
+                page: "MainPage",
+                command: "DeleteAccount"
+            },
+            function (data) {
+                if (data === "1") {
+                    alert("Account deleted successfully!");
+                    $("#logout-form").submit();
+                } else {
+                    alert("There was a problem deleting your account!");
                 }
             }
         );

@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect('localhost', 'root', '', 'snow_messenger');
+$conn = mysqli_connect('localhost', 'w3jabel', 'w3jabel136', 'C354_w3jabel');
 function username_exists($u) {
     global $conn;
     $sql = "SELECT * FROM Users WHERE Username = '$u'";
@@ -131,5 +131,11 @@ function delete_message($author, $message) {
 function delete_friend($u, $friend_username) {
     global $conn;
     $sql = "DELETE FROM Friends WHERE Username = '$u' AND FriendUsername = '$friend_username'";
+    return mysqli_query($conn, $sql);
+}
+
+function delete_account($u) {
+    global $conn;
+    $sql = "DELETE FROM Users WHERE Username = '$u'";
     return mysqli_query($conn, $sql);
 }

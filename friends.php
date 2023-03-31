@@ -47,7 +47,7 @@
                     <input id="friend-username" class="form-control" name="friend">
                 </div>
                 <div class="col-1">
-                    <img id="search-send" src="../Icons/search.png" width="35px">
+                    <img id="search-send" src="Icons/search.png" width="35px">
                 </div>
             </div>
             <div class="row">

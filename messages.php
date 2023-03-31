@@ -68,7 +68,7 @@
                     <h2 class="mb-5">Messages</h2>
                 </div>
                 <div class="col-6 text-end">
-                    <img id="refresh-messages" src="../Icons/refresh.png" width="50px">
+                    <img id="refresh-messages" src="Icons/refresh.png" width="50px">
                 </div>
             </div>
             <div id="messages-container" class="container-fluid"></div>
