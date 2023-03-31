@@ -10,14 +10,16 @@
 </head>
 
 <style>
-
+    #account-info {
+        background-color: #F4F3EE;
+    }
 </style>
 
 <body>
 <div class="container-fluid vh-100 overflow-hidden">
     <div class="row mt-5">
         <div class="col-9 m-auto p-5">
-            <div class="row border border-primary p-4 rounded-3">
+            <div id="account-info" class="row p-4 rounded-3">
                 <div class="col-12">
                     <div class="row px-4">
                         <h2 class="text-center">Change Account Info</h2>

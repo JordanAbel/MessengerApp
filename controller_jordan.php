@@ -90,6 +90,8 @@ if ($page == 'StartPage') {
         case 'AddFriend':
             if ($_POST["friend_username"] == $username) {
                 $result = 2;
+            } else if (friend_exists($username, $_POST["friend_username"])) {
+                $result = 3;
             } else if (username_exists($_POST["friend_username"])) {
                 $result = add_friend($username, $_POST["friend_username"]);
             } else {

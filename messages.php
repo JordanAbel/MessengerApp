@@ -21,6 +21,10 @@
         cursor: pointer;
     }
 
+    #post-message, #message {
+        background-color: #F4F3EE;
+    }
+
     @keyframes rotate {
         0% {
             transform: rotate(0deg)
@@ -34,9 +38,9 @@
 <body>
 <div class="container-fluid overflow-auto">
     <div id="top-banner" class="row text-center m-5 mb-3"></div>
-    <div id="post-message" class="row">
+    <div class="row">
         <div class="col-9 m-auto p-5">
-            <div class="row border border-primary p-4 rounded-3">
+            <div id="post-message" class="row p-4 rounded-3 shadow">
                 <div class="col-12">
                     <div class="row px-4">
                         <h2>Post a message:</h2>
@@ -139,7 +143,7 @@
             let skillLevel = data[row]["Skill_level"];
             let message = data[row]["Message"];
 
-            html += '<div class="row border border-primary p-4 rounded-3 mb-5">';
+            html += '<div id="message" class="row p-4 rounded-3 mb-5 shadow">';
             html += '<div class="col-12">';
             html += '<div class="row px-4">';
             html += '<div class="col-6">';
@@ -150,7 +154,7 @@
             html += '</div>';
             html += '</div>';
             html += '<div class="row px-5 py-3">';
-            html += `<div class='rounded-3 border border-dark' style="min-height: 150px">${message}</div>`;
+            html += `<div class='rounded-3 border border-dark' style="min-height: 150px; background-color: white">${message}</div>`;
             html += '</div>';
             html += '<div class="row px-5 pt-3">';
             html += '<div class="col-12 text-end">';

@@ -14,12 +14,21 @@
         filter: invert(60%);
         cursor: pointer;
     }
+    #friends-list {
+        background-color: #F4F3EE;
+    }
+    #friends-table {
+        background-color: white;
+    }
+    #table-header {
+        background-color: #cddafd;
+    }
 </style>
 
 <body>
 <div class="container-fluid overflow-auto">
     <div class="row py-5">
-        <div class="col-9 m-auto my-5 border border-dark rounded-3 p-3">
+        <div id="friends-list" class="col-9 m-auto my-5 rounded-3 p-3">
             <div class="row">
                 <div class="col-12 mb-3">
                     <h1 class="text-center">Friends List</h1>
@@ -47,7 +56,7 @@
                     <input id="friend-username" class="form-control" name="friend">
                 </div>
                 <div class="col-1">
-                    <img id="search-send" src="Icons/search.png" width="35px">
+                    <img id="search-send" src="Icons/search.png" width="35px" class="float-end">
                 </div>
             </div>
             <div class="row">
@@ -66,8 +75,8 @@
 
     function create_table(data) {
         data = JSON.parse(data);
-        let html = "<table class='table table-bordered'>";
-        html += "<th>Friends Username</th>";
+        let html = "<table id='friends-table' class='table table-bordered'>";
+        html += "<th id='table-header'>Friends Username</th>";
 
         for (let row in data) {
             html += '<tr>';
@@ -110,6 +119,8 @@
                         alert("Username does not exist!");
                     } else if (data === "2") {
                         alert("Unable to add current user as friend!");
+                    } else if (data === "3") {
+                        alert("Friend has already been added!");
                     } else {
                         alert("Friend was added successfully!");
                         load_friends();

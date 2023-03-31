@@ -22,20 +22,35 @@
     #ui-container, #results {
         height: calc(100vh - 7vh);
     }
+    #banner {
+        background-color: #2F323A;
+        color: #F4F3EE;
+    }
+    #container {
+        background: #83a4d4;
+        background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);
+        background: linear-gradient(to right, #b6fbff, #83a4d4);
+    }
+    #nav-container {
+        background-color: #F4F3EE;
+    }
+    #logo {
+        filter: invert(100%);
+    }
 </style>
 <body>
-<div class="container-fluid vh-100 border border-dark overflow-hidden">
-    <div class="row border border-primary align-content-center" style="height: 7vh">
+<div id="container" class="container-fluid vh-100 overflow-hidden">
+    <div id="banner" class="row align-content-center shadow" style="height: 7vh">
         <div class="col-1">
-            <img class="mx-4" src="Icons/snowboarder.png" width="50px">
+            <img id="logo" class="mx-4" src="Icons/snowboarder.png" width="50px">
         </div>
         <div class="col-11">
             <h1 class="text-end mx-4">Snowboarder Messenger</h1>
         </div>
     </div>
 
-    <div id="ui-container" class="row border border-danger">
-        <div class="col-3 border h-auto border-success d-flex flex-column">
+    <div id="ui-container" class="row">
+        <div id="nav-container" class="col-3 h-auto d-flex flex-column shadow">
             <div class="row m-5">
                 <button id="messages" class="btn btn-light btn-outline-dark rounded-3">Message Board</button>
             </div>
@@ -49,7 +64,7 @@
                 <button id="logout" class="btn btn-light btn-outline-dark rounded-3">Log Out</button>
             </div>
         </div>
-        <div id="results" class="col-9 border border-warning d-flex flex-column"></div>
+        <div id="results" class="col-9 d-flex flex-column"></div>
     </div>
 
     <div class='modal fade' id='modal-search-friends'>

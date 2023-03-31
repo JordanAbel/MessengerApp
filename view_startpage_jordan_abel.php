@@ -10,14 +10,28 @@
 </head>
 
 <style>
-
+    #banner {
+        background-color: #2F323A;
+        color: #F4F3EE;
+    }
+    #container {
+        background: #83a4d4;
+        background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);
+        background: linear-gradient(to right, #b6fbff, #83a4d4);
+    }
+    #signup-login {
+        background-color: #F4F3EE;
+    }
+    #logo {
+        filter: invert(100%);
+    }
 </style>
 
 <body>
-<div class="container-fluid vh-100 overflow-hidden">
-    <div class="row border border-primary align-content-center" style="height: 7vh">
+<div id="container" class="container-fluid vh-100 overflow-hidden">
+    <div id="banner" class="row align-content-center shadow" style="height: 7vh">
         <div class="col-1">
-            <img class="mx-4" src="Icons/snowboarder.png" width="50px">
+            <img id="logo" class="mx-4" src="Icons/snowboarder.png" width="50px">
         </div>
         <div class="col-11">
             <h1 class="text-end mx-4">Snowboarder Messenger</h1>
@@ -25,9 +39,10 @@
     </div>
 
     <div class="row h-100">
-        <div class="col-8 position-absolute top-50 start-50 translate-middle border border-secondary h-75">
-            <div class="row h-25 border border-secondary text-center align-content-center">
-                <h1 class="">Welcome to Snowboarder Messenger!</h1>
+        <div id="signup-login"
+             class="col-8 position-absolute top-50 start-50 translate-middle rounded-3 shadow h-50">
+            <div class="row h-25 text-center align-content-center">
+                <h1 class="mt-5">Welcome to Snowboarder Messenger!</h1>
             </div>
             <div class="row h-50 text-center align-content-center">
                 <h3>Please Log In or Sign Up</h3>
@@ -35,7 +50,7 @@
             <div class="row">
                 <div class="col-6 text-center">
                     <button id="login-btn"
-                            class="btn rounded-pill px-4 py-3"
+                            class="btn rounded-pill px-4 py-3 btn-light btn-outline-dark"
                             data-bs-toggle="modal"
                             data-bs-target="#login-modal-window"
                     >
@@ -44,7 +59,7 @@
                 </div>
                 <div class="col-6 text-center">
                     <button id="signup-btn"
-                            class="btn rounded-pill px-4 py-3"
+                            class="btn rounded-pill px-4 py-3 btn-light btn-outline-dark"
                             data-bs-toggle="modal"
                             data-bs-target="#signup-modal-window"
                     >
