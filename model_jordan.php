@@ -122,6 +122,12 @@ function change_password($u, $new_password) {
     return mysqli_query($conn, $sql);
 }
 
+function change_email($u, $new_email) {
+    global $conn;
+    $sql = "UPDATE Users SET Email = '$new_email' WHERE Username = '$u'";
+    return mysqli_query($conn, $sql);
+}
+
 function delete_message($author, $message) {
     global $conn;
     $sql = "DELETE FROM Messages WHERE Author = '$author' AND Message = '$message'";

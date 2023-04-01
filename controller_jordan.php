@@ -117,6 +117,10 @@ if ($page == 'StartPage') {
             $result = change_password($username, $_POST['new_password']);
             echo "$result";
             exit();
+        case 'ChangeEmail':
+            $result = change_email($username, $_POST['new_email']);
+            echo "$result";
+            exit();
         case 'DeleteMessage':
             $result = delete_message($_POST["author"], $_POST["message"]);
             echo "$result";

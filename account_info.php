@@ -62,6 +62,26 @@
                             </button>
                         </div>
                     </div>
+                    <div class="row mt-5 px-5">
+                        <div class="col-2">
+                            <label class="control-label" for="change-email">Email:</label>
+                        </div>
+                        <div class="col-4 ms-auto me-5">
+                            <input class="form-control"
+                                   id="change-email"
+                                   placeholder="Enter email"
+                                   name="email"
+                                   type="text"
+                                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                        </div>
+                        <div class="col-2">
+                            <button id="change-email-send"
+                                    class="btn btn-light btn-outline-dark rounded-pill px-4 py-2 float-end"
+                            >
+                                Change
+                            </button>
+                        </div>
+                    </div>
                     <div class="row my-5 px-5">
                         <div class="col-2">
                             <label class="control-label" for="skill-level">Skill Level:</label>
@@ -151,6 +171,23 @@
                     alert("Password changed successfully");
                 } else {
                     alert("There was an error changing your password!");
+                }
+            }
+        );
+    })
+
+    $("#change-email-send").click(function () {
+        $.post("controller_jordan.php",
+            {
+                page: "MainPage",
+                command: "ChangeEmail",
+                new_email: $('#change-email').val()
+            },
+            function (data) {
+                if (data === "1") {
+                    alert("Email changed successfully");
+                } else {
+                    alert("There was an error changing your email!");
                 }
             }
         );
