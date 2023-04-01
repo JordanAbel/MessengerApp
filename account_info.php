@@ -69,7 +69,7 @@
                         <div class="col-4 ms-auto me-5">
                             <input class="form-control"
                                    id="change-email"
-                                   placeholder="Enter email"
+                                   placeholder="johnsmith@gmail.com"
                                    name="email"
                                    type="text"
                                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
